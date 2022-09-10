@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Search</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: 50px;
+            width: 800px;
+            height: 30px;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .container > div{
+            margin: 0 5px;
+            border: 1px solid black;
+            color: black;
+            font-weight: bold;
+            padding: 5px;
+            flex-basis: 15%;
+            text-align: center;
+        }
+
+        div.search-div{
+            flex-basis: 5%;
+            border: none;
+        }
+
+        .search-div > input{
+            width: 100%;
+            text-overflow: ellipsis;
+        }
+
+        .float{
+            position: absolute;
+            top:0%;
+            right: 0%;
+            width: 40px;
+            height: 28px;
+            z-index: 3;
+            background-color: white;
+        }
+
+        .float > a{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <section class="container">
+        <div>MENU</div>
+        <div>ABOUT US</div>
+        <div>HOME</div>
+        <div class="search-div"><input type="text" name="search-bar" id="search-bar" placeholder="Search.."></div>
+        <div class="float"><a class="clickable">🔍</a></div>
+    </section>
+
+<script>
+    let floatElement = document.querySelector('.float');
+    floatElement.style.right='0%';
+    let clickable = document.querySelector('.clickable');
+    let searchBarContainer = document.querySelector('div.search-div');
+
+    clickable.addEventListener('click',function(){
+        if(floatElement.style.right=='0%'){
+            floatElement.style.right='-5.05%';
+            searchBarContainer.style.flexBasis='30%';
+        }
+
+        else{
+            floatElement.style.right='0%';
+            searchBarContainer.style.flexBasis='5%';
+
+        }
+    })
+
+
+</script>
+</body>
+</html>
